@@ -1,0 +1,72 @@
+{
+	"Name": "User",
+	"DisplayName": {
+		"default": "Usuário",
+		"en-US": "User"
+	},
+	"Pluralize": {
+		"default": "Usuários",
+		"en-US": "Users"
+	},
+	"Gender": "Male",
+	"Fields": [
+		{
+			"Name": "Name",
+			"DisplayName": {
+				"default": "Nome"
+			},
+			"FieldType": "Text",
+			"Validation": {
+				"Required": true,
+				"MaxLength": 100,
+				"MinLength": 3
+			},
+			"Order": 0
+		},
+		{
+			"Name": "UserName",
+			"DisplayName": {
+				"default": "Nome de usuário",
+				"en-US": "User name"
+			},
+			"FieldType": "Text",
+			"Validation": {
+				"Required": true,
+				"MaxLength": 20,
+				"MinLength": 10,
+				"IsUnique": true
+			},
+			"Order": 1
+		},
+		{
+			"Name": "Password",
+			"DisplayName": {
+				"default": "Senha",
+				"en-US": "Password"
+			},
+			"FieldType": "Text",
+			"Format": "Password",
+			"Validation": {
+				"Required": true,
+				"MaxLength": 18,
+				"MinLength": 13
+			},
+			"Order": 2
+		},
+		{
+			"Name": "ContactEmail",
+			"DisplayName": {
+				"default": "Email de contato",
+				"en-US": "Contact Email"
+			},
+			"FieldType": "Text",
+			"Validation": {
+				"Required": false,
+				"MaxLength": 100,
+				"MinLength": 7
+			},
+			"Order": 3
+		}
+	],
+	"OpenNewItemInModal": true
+}

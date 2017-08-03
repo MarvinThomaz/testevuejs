@@ -1,0 +1,21 @@
+.hidden{
+    display: none;
+}
+
+.table{
+    display: table;
+}
+
+.row{
+    display: table-row;
+}
+
+.cell{
+    display: table-cell;
+    border: 1pt solid #000;
+}
+
+.col{
+    display: table-column;
+    border: 1pt solid #000;
+}

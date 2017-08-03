@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Scripts-->
+    <script src="js/util.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/vue.min.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/app.js"></script>
+
+    <!--Styles-->
+    <link href="styles/app.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+    <div class="table" id="app">
+        <div class="row toolbar">
+            <button type="button" @click="openForm">Novo usuário</button>
+            <div class="form-user" :class="{'hidden': formActive}">
+                <div class="col">
+                    <label for="name">Nome: </label>
+                </div>
+                <div class="col">
+                    <input id="name" v-model="user.Name" type="text" required maxlength="100" minlength="3">
+                </div>
+                <div class="col">
+                    <label for="userName">Nome de usuário: </label>
+                </div>
+                <div class="col">
+                    <input id="userName" v-model="user.UserName" type="text" required maxlength="20" minlength="10">
+                </div>
+                <div class="col">
+                    <label for="password">Senha: </label>
+                </div>
+                <div class="col">
+                    <input id="password" v-model="user.Password" type="Password" required maxlength="18" minlength="13">
+                </div>
+                <div class="col">
+                    <label for="contactEmail">E-mail: </label>
+                </div>
+                <div class="col">
+                    <input id="contactEmail" v-model="user.ContactEmail" type="email" maxlength="100" minlength="7">
+                </div>
+                <div class="col">
+                    <input type="submit" value="Save" @click="createUser(user)">
+                </div>
+            </div>
+        </div>
+        <div class="row head">
+            <div class="cell head">Nome</div>
+            <div class="cell head">Nome de usuário</div>
+            <div class="cell head">E-mail</div>
+            <div class="cell head">Senha</div>
+        </div>
+        <div class="row" v-for="(user, key) in users" :key="key" :id="user._id">
+            <div class="cell">{{user.Name}}</div>
+            <div class="cell">{{user.Login}}</div>
+            <div class="cell">{{user.Email}}</div>
+            <div class="cell">{{user.Password}}</div>
+            <div class="cell"><a :href="'paginas/view/' + user._id">Visualizar</a> |</div>
+            <div class="cell"><a :href="'paginas/edit/' + user._id">Editar</a> |</div>
+            <div class="cell"><a :href="'paginas/delete/' + user._id">Excluir</a></div>
+        </div>
+    </div>
+</body>
+
+</html>
